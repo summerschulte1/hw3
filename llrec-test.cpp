@@ -81,11 +81,34 @@ int main(int argc, char* argv[])
     // -----------------------------------------------
     // Feel free to update any code below this point
     // -----------------------------------------------
-    Node* head = readList(argv[1]);
+
+    const char* filename = argv[1];
+    int pivot = atoi(argv[2]); // Convert the second command line argument to an integer
+
+    // Read list from file
+    Node* head = readList(filename);
+   
+
+    // Print the original list
     cout << "Original list: ";
     print(head);
 
-    // Test out your linked list code
+    Node *smaller = NULL, *larger = NULL;
+
+    // Call llpivot with the list and pivot
+    llpivot(head, smaller, larger, pivot);
+
+    // Print the resulting lists
+    cout << "Smaller or equal than pivot (" << pivot << "): ";
+    print(smaller);
+
+    cout << "Larger than pivot (" << pivot << "): ";
+    print(larger);
+
+    // Deallocate all lists
+    dealloc(smaller);
+    dealloc(larger);
+    
 
 
 

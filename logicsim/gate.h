@@ -34,5 +34,12 @@ class Or2Gate : public Gate
       Or2Gate(Wire*, Wire*, Wire*);
       Event* update(uint64_t);
 };
+class NotGate : public Gate
+{
+public:
+    NotGate(Wire* input, Wire* output);
+    Event* update(uint64_t current_time) override;
+};
+
 
 #endif
